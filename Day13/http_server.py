@@ -81,13 +81,13 @@ class HTTPServer:
         except Exception:
             # 网页不存在
             response = "HTTP/1.1 404 Not Found\r\n"
-            response += 'Content=Typy:text/html\r\n'
+            response += 'Content=Type:text/html\r\n'
             response += '\r\n'
             response += '<h1>Sorry...</h1>'
         else:
             # 网页存在
             response = "HTTP/1.1 200 OK\r\n"
-            response += 'Content=Tpyy:text/html\r\n'
+            response += 'Content=Type:text/html\r\n'
             response += '\r\n'
             response += fd.read()
         finally:
@@ -97,7 +97,7 @@ class HTTPServer:
     # 其他数据
     def get_data(self,connfd,info):
         response = "HTTP/1.1 200 OK\r\n"
-        response += 'Content=Tpyy:text/html\r\n'
+        response += 'Content=Type:text/html\r\n'
         response += '\r\n'
         response += "<h1Waiting for httpserver 3.0</h1>"
         connfd.send(response.encode())
